@@ -189,7 +189,7 @@ func DeleteUser(c echo.Context) error {
 
 	var response m.Response
 	response.Status = http.StatusOK
-	response.Message = "Delete uccessful"
+	response.Message = "Delete successful"
 	response.Data = map[string]int64{
 		"rows_affected": rowsAffected,
 	}
