@@ -4,7 +4,6 @@ import (
 	"net/http"
 	"strconv"
 
-	"echo-rest/db"
 	m "echo-rest/models"
 
 	"github.com/go-playground/validator/v10"
@@ -12,7 +11,7 @@ import (
 )
 
 func GetAllUsers(c echo.Context) error {
-	con := db.CreateCon()
+	con := CreateCon()
 
 	sqlStatement := "SELECT * FROM users"
 
@@ -42,7 +41,7 @@ func GetAllUsers(c echo.Context) error {
 }
 
 func InsertUser(c echo.Context) error {
-	con := db.CreateCon()
+	con := CreateCon()
 
 	name := c.FormValue("name")
 	age := c.FormValue("age")
@@ -103,7 +102,7 @@ func InsertUser(c echo.Context) error {
 }
 
 func UpdateUser(c echo.Context) error {
-	con := db.CreateCon()
+	con := CreateCon()
 
 	id := c.FormValue("id")
 	name := c.FormValue("name")
@@ -166,7 +165,7 @@ func UpdateUser(c echo.Context) error {
 }
 
 func DeleteUser(c echo.Context) error {
-	con := db.CreateCon()
+	con := CreateCon()
 
 	id := c.FormValue("id")
 
